@@ -1,0 +1,12 @@
+import axios from "axios";
+
+export default {
+  search: function (storySearch) {
+    let queryURL = "http://hn.algolia.com/api/v1/" + storySearch;
+    return axios.get(queryURL);
+  },
+  recent: function () {
+    let queryURL = "http://hn.algolia.com/api/v1/search_by_date?tags=story";
+    return axios.get(queryURL);
+  }
+};
