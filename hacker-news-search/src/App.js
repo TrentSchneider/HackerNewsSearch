@@ -19,6 +19,7 @@ function App() {
             <Home
               searchResult={searchResult}
               setSearchResult={setSearchResult}
+              history={history}
               setHistory={setHistory}
             />
           </Route>
