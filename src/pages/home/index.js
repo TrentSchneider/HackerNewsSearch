@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import SearchResult from "../../components/searchResult";
+// import Moment from "moment";
+
 function Home(props) {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     API.recent()
       .then(res => {
-        props.setSearchResult(res.data);
+        props.setSearchResult(res.data.hits);
       })
       .catch(err => console.log("err", err));
-  });
+  }, []);
 
   function handleSearchClick(event) {
     event.preventDefault();
+
     if (searchText !== "") {
       API.search(searchText)
         .then(res => {
-          props.setSearchResult(res.data);
+          props.setSearchResult(res.data.hits);
         })
         .catch(err => console.log("err", err));
     }
