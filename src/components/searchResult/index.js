@@ -12,17 +12,13 @@ function SearchResult(props) {
       <div>
         <h2>Results:</h2>
         <div className="card">
-          test2
           {props.searchResult.map((data, i) => {
             return (
               <div key={i}>
-                test
-                <div>
-                  <a href={data.url} target="_blank" rel="noreferrer">
-                    <h4>Title {data.title}</h4>
-                    <h5>Author {data.author}</h5>
-                  </a>
-                </div>
+                <a href={data.url} target="_blank" rel="noreferrer">
+                  <h4>Title {data.title}</h4>
+                  <h5>Author {data.author}</h5>
+                </a>
               </div>
             );
           })}
