@@ -1,32 +1,15 @@
-import React, { useEffect, useState } from "react";
-import API from "../../utils/API";
+import React, { useEffect } from "react";
 import SearchResult from "../../components/searchResult";
-// import Moment from "moment";
 
 function Home(props) {
-  const [searchText, setSearchText] = useState("");
-
   useEffect(() => {
-    API.recent()
+    props.API.recent()
       .then(res => {
         props.setSearchResult(res.data.hits);
       })
       .catch(err => console.log("err", err));
-      // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
-
-  function handleSearchClick(event) {
-    event.preventDefault();
-
-    if (searchText !== "") {
-      API.search(searchText)
-        .then(res => {
-          props.setSearchResult(res.data.hits);
-        })
-        .catch(err => console.log("err", err));
-    }
-  }
-
   return (
     <div>
       <form>
@@ -40,10 +23,10 @@ function Home(props) {
             id="searchInput"
             aria-describedby="SearchInputHelp"
             placeholder="Enter Text"
-            onChange={e => setSearchText(e.target.value)}
+            onChange={e => props.setSearchText(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn" onClick={handleSearchClick}>
+        <button type="submit" className="btn" onClick={props.handleSearchClick}>
           Search
         </button>
       </form>
