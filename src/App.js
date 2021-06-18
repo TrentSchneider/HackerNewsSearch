@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Home from "./pages/home";
 import History from "./pages/history";
-import Footer from "./components/footer";
-import Header from "./components/header";
+// import Footer from "./components/footer";
+// import Header from "./components/header";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       <Router>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           <Route exact path={["/", "/home"]}>
             <Home
@@ -27,7 +27,7 @@ function App() {
             <History history={history} />
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );
