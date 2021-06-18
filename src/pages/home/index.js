@@ -12,6 +12,7 @@ function Home(props) {
         props.setSearchResult(res.data.hits);
       })
       .catch(err => console.log("err", err));
+      // eslint-disable-next-line
   }, []);
 
   function handleSearchClick(event) {
