@@ -1,7 +1,7 @@
 import React from "react";
+import moment from "moment"
 
 function SearchHistory(props) {
-  console.log("history", props.history);
   if (props.history === undefined) {
     return (
       <div>
@@ -14,7 +14,9 @@ function SearchHistory(props) {
         {props.history.map((data, i) => {
           return (
             <div key={i}>
-              <h4>{data}</h4>
+              <h4>
+                Date: {moment(data.timestamp).format("dddd, MMMM Do YYYY, h:mm:ss a")} Search: {data.search}
+              </h4>
             </div>
           );
         })}

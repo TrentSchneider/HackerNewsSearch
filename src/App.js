@@ -5,7 +5,6 @@ import History from "./pages/history";
 import Header from "./components/header";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/API";
-
 import "./App.css";
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
   function handleSearchClick(event) {
     event.preventDefault();
 
-    setHistory(history.concat(searchText));
+    setHistory(history.concat({ "search": searchText, "timestamp": new Date() }));
 
     if (searchText !== "") {
       API.search(searchText)
