@@ -11,12 +11,19 @@ function Home(props) {
     // eslint-disable-next-line
   }, []);
   return (
-    <div>
+    <div className="mx-1">
       <form>
-        <div>
-          <label htmlFor="searchInput">
-            <h3>Story Search</h3>
-          </label>
+        <label htmlFor="searchInput">
+          <h2>Story Search</h2>
+        </label>
+        <div className="input-group">
+          <button
+            type="submit"
+            className="btn btn-secondary"
+            onClick={props.handleSearchClick}
+          >
+            Search
+          </button>
           <input
             type="text"
             className="form-control"
@@ -26,11 +33,11 @@ function Home(props) {
             onChange={e => props.setSearchText(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn" onClick={props.handleSearchClick}>
-          Search
-        </button>
       </form>
-      <SearchResult searchResult={props.searchResult} />
+      <div className="card p-1 mt-4">
+        <h2>Results:</h2>
+        <SearchResult searchResult={props.searchResult} />
+      </div>
     </div>
   );
 }

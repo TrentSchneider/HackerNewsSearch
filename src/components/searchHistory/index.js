@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment"
+import moment from "moment";
 
 function SearchHistory(props) {
   if (props.history === undefined) {
@@ -13,10 +13,11 @@ function SearchHistory(props) {
       <div>
         {props.history.map((data, i) => {
           return (
-            <div key={i}>
-              <h4>
-                Date: {moment(data.timestamp).format("dddd, MMMM Do YYYY, h:mm:ss a")} Search: {data.search}
-              </h4>
+            <div key={i} className="card my-1 p-2">
+              <h4 className="card-title">Search: {data.search}</h4>
+              <p className="card-subtitle">
+                Date: {moment(data.timestamp).format("M-D-YYYY h:mm:ssa")}
+              </p>
             </div>
           );
         })}

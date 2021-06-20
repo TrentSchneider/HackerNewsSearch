@@ -4,9 +4,12 @@ import SearchHistory from "../../components/searchHistory";
 
 function History(props) {
   return (
-    <div>
-      <h2>Search History</h2>
-      <SearchHistory history={props.history} />
+    <div className="mx-1">
+      <h2>History</h2>
+      <div className="card p-1 mt-4">
+        <h2>Results:</h2>
+        <SearchHistory history={props.history} />
+      </div>
     </div>
   );
 }

@@ -10,19 +10,16 @@ function SearchResult(props) {
   } else {
     return (
       <div>
-        <h2>Results:</h2>
-        <div className="card">
-          {props.searchResult.map((data, i) => {
-            return (
-              <div key={i}>
-                <a href={data.url} target="_blank" rel="noreferrer">
-                  <h4>Title {data.title}</h4>
-                  <h5>Author {data.author}</h5>
-                </a>
-              </div>
-            );
-          })}
-        </div>
+        {props.searchResult.map((data, i) => {
+          return (
+            <div key={i} className="card my-1 p-2">
+              <a href={data.url} target="_blank" rel="noreferrer">
+                <h4 className="card-title">{data.title}</h4>
+              </a>
+              <p className="card-subtitle">Author: {data.author}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }
