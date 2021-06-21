@@ -40,17 +40,15 @@ function App() {
     }
   }
   function sortDes() {
-    console.log("before d", history);
     const desc = history.sort((a, b) => a.timestamp - b.timestamp);
-    console.log("after d", desc);
-    setHistory(desc);
+    console.log("desc", desc);
+    return desc;
   }
   function sortAsc() {
-    console.log("before a", history);
     const asc = history.sort((a, b) => b.timestamp - a.timestamp);
-    console.log("after a", asc);
-    setHistory(asc);
-  }  
+    console.log("asc", asc);
+    return asc;
+  }
   return (
     <div>
       <Router>
@@ -66,10 +64,13 @@ function App() {
             />
           </Route>
           <Route exact path={["/history"]}>
-            <History history={history} clearStorage={clearStorage} 
-            setHistory={setHistory}
-            sortDes={sortDes}
-            sortAsc={sortAsc}/>
+            <History
+              history={history}
+              clearStorage={clearStorage}
+              setHistory={setHistory}
+              sortDes={sortDes}
+              sortAsc={sortAsc}
+            />
           </Route>
         </Switch>
         {/* <Footer /> */}
