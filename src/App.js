@@ -13,9 +13,18 @@ function App() {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    console.log("history updated");
-    console.log(history);
+    setHistory(JSON.parse(localStorage.getItem("history")));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("history", JSON.stringify(history));
+    console.log("set local", history);
   }, [history]);
+
+  function clearStorage() {
+    localStorage.clear();
+    setHistory([]);
+  }
 
   function handleSearchClick(event) {
     event.preventDefault();
@@ -30,7 +39,6 @@ function App() {
         .catch(err => console.log("err", err));
     }
   }
-
   function sortDes() {
     console.log("before d", history);
     const desc = history.sort((a, b) => a.timestamp - b.timestamp);
@@ -42,8 +50,7 @@ function App() {
     const asc = history.sort((a, b) => b.timestamp - a.timestamp);
     console.log("after a", asc);
     setHistory(asc);
-  }
-
+  }  
   return (
     <div>
       <Router>
@@ -59,12 +66,10 @@ function App() {
             />
           </Route>
           <Route exact path={["/history"]}>
-            <History
-              history={history}
-              setHistory={setHistory}
-              sortDes={sortDes}
-              sortAsc={sortAsc}
-            />
+            <History history={history} clearStorage={clearStorage} 
+            setHistory={setHistory}
+            sortDes={sortDes}
+            sortAsc={sortAsc}/>
           </Route>
         </Switch>
         {/* <Footer /> */}
