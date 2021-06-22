@@ -6,6 +6,7 @@ import Header from "./components/header";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/API";
 import "./App.css";
+import moment from "moment";
 
 function App() {
   const [searchResult, setSearchResult] = useState([]);
@@ -30,9 +31,11 @@ function App() {
     event.preventDefault();
 
     if (history === null) {
-      setHistory([{ search: searchText, timestamp: new Date() }]);
+      setHistory([{ search: searchText, timestamp: moment().unix() }]);
     } else {
-      setHistory(history.concat({ search: searchText, timestamp: new Date() }));
+      setHistory(
+        history.concat({ search: searchText, timestamp: moment().unix() })
+      );
     }
     if (searchText !== "") {
       API.search(searchText)
@@ -41,16 +44,6 @@ function App() {
         })
         .catch(err => console.log("err", err));
     }
-  }
-  function sortDes() {
-    const desc = history.sort((a, b) => a.timestamp - b.timestamp);
-    console.log("desc", desc);
-    return desc;
-  }
-  function sortAsc() {
-    const asc = history.sort((a, b) => b.timestamp - a.timestamp);
-    console.log("asc", asc);
-    return asc;
   }
   return (
     <div>
@@ -67,13 +60,7 @@ function App() {
             />
           </Route>
           <Route exact path={["/history"]}>
-            <History
-              history={history}
-              clearStorage={clearStorage}
-              setHistory={setHistory}
-              sortDes={sortDes}
-              sortAsc={sortAsc}
-            />
+            <History history={history} clearStorage={clearStorage} />
           </Route>
         </Switch>
         {/* <Footer /> */}
