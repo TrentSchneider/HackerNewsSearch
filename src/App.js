@@ -29,8 +29,11 @@ function App() {
   function handleSearchClick(event) {
     event.preventDefault();
 
-    setHistory(history.concat({ search: searchText, timestamp: new Date() }));
-
+    if (history === null) {
+      setHistory([{ search: searchText, timestamp: new Date() }]);
+    } else {
+      setHistory(history.concat({ search: searchText, timestamp: new Date() }));
+    }
     if (searchText !== "") {
       API.search(searchText)
         .then(res => {
@@ -42,10 +45,10 @@ function App() {
 
   return (
     <div>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Header />
         <Switch>
-          <Route exact path={["/", "/home"]}>
+          <Route exact path={["/"]}>
             <Home
               API={API}
               handleSearchClick={handleSearchClick}

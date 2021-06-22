@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 
 function SearchHistory(props) {
-  if (props.history === undefined) {
+  if (props.history === undefined || props.history === null) {
     return (
       <div>
         <h3>No History</h3>
