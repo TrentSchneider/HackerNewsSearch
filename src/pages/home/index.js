@@ -14,7 +14,7 @@ function Home(props) {
     <div className="mx-1">
       <form>
         <label htmlFor="searchInput">
-          <h2>Story Search</h2>
+          <h1>Story Search</h1>
         </label>
         <div className="input-group">
           <button

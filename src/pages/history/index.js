@@ -5,7 +5,7 @@ import SearchHistory from "../../components/searchHistory";
 function History(props) {
   return (
     <div className="mx-1">
-      <h2>History</h2>
+      <h1>History</h1>
       <div>
         <button
           type="button"
