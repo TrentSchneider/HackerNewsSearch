@@ -6,6 +6,7 @@ import Header from "./components/header";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/API";
 import "./App.css";
+import moment from "moment";
 
 function App() {
   const [searchResult, setSearchResult] = useState([]);
@@ -30,9 +31,11 @@ function App() {
     event.preventDefault();
 
     if (history === null) {
-      setHistory([{ search: searchText, timestamp: new Date() }]);
+      setHistory([{ search: searchText, timestamp: moment().unix() }]);
     } else {
-      setHistory(history.concat({ search: searchText, timestamp: new Date() }));
+      setHistory(
+        history.concat({ search: searchText, timestamp: moment().unix() })
+      );
     }
     if (searchText !== "") {
       API.search(searchText)
@@ -42,7 +45,6 @@ function App() {
         .catch(err => console.log("err", err));
     }
   }
-
   return (
     <div>
       <Router basename={process.env.PUBLIC_URL}>
