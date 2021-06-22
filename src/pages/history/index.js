@@ -8,31 +8,30 @@ function History(props) {
     <div className="mx-1">
       <h1>History</h1>
       <h2>Sort:</h2>
-        <button
-          className="btn btn-secondary mx-1"
-          onClick={() => {
-            props.setHistory(props.sortAsc);
-          }}
-        >
-          Ascending
-        </button>
-        <button
-          className="btn btn-secondary mx-1"
-          onClick={() => {
-            props.setHistory(props.sortDes);
-          }}
-        >
-          Descending
-        </button>
-      <div>
-        <button
-          type="button"
-          className="btn btn-secondary"
-          onClick={props.clearStorage}
-        >
-          Clear History
-        </button>
-      </div>
+      <button
+        className="btn btn-secondary mx-1"
+        onClick={() => {
+          props.setHistory(props.sortAsc);
+        }}
+      >
+        Ascending
+      </button>
+      <button
+        className="btn btn-secondary mx-1"
+        onClick={() => {
+          props.setHistory(props.sortDes);
+        }}
+      >
+        Descending
+      </button>
+
+      <button
+        className="btn btn-secondary mx-1"
+        onClick={props.clearStorage}
+      >
+        Clear History
+      </button>
+
       <div className="card p-1 mt-4">
         <h2>Results:</h2>
 
