@@ -14,7 +14,6 @@ function SearchHistory(props) {
     );
   } else if (props.sort === "ascending") {
     const asce = props.history.sort((a, b) => a.timestamp - b.timestamp);
-    console.log("hist asce=", asce);
     return (
       <div>
         {asce.map((data, i) => {
@@ -31,7 +30,6 @@ function SearchHistory(props) {
     );
   } else if (props.sort === "descending") {
     const desc = props.history.sort((a, b) => b.timestamp - a.timestamp);
-    console.log("hist desc", desc);
     return (
       <div>
         {desc.map((data, i) => {

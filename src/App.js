@@ -19,7 +19,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("history", JSON.stringify(history));
-    console.log("set local", history);
   }, [history]);
 
   function clearStorage() {

@@ -8,7 +8,6 @@ function SearchResult(props) {
       </div>
     );
   } else {
-    console.log("results", props.searchResult);
     return (
       <div>
         {props.searchResult.map((data, i) => {
