@@ -6,9 +6,8 @@ function History(props) {
   console.log("history", props.history);
   return (
     <div className="mx-1">
-      <h2>History</h2>
-      <div>
-        <h3>Sort:</h3>
+      <h1>History</h1>
+      <h2>Sort:</h2>
         <button
           className="btn btn-secondary mx-1"
           onClick={() => {
@@ -25,12 +24,18 @@ function History(props) {
         >
           Descending
         </button>
-        <button className="btn btn-secondary mx-1" onClick={props.clearStorage}>
-          Clear
+      <div>
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={props.clearStorage}
+        >
+          Clear History
         </button>
       </div>
       <div className="card p-1 mt-4">
         <h2>Results:</h2>
+
         <SearchHistory history={props.history} />
       </div>
     </div>
