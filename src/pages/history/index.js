@@ -8,7 +8,7 @@ function History(props) {
   return (
     <div className="mx-1">
       <h1>History</h1>
-      <h2>Sort:</h2>
+      <h2>Sort by date:</h2>
       <button
         className="btn btn-secondary mx-1"
         onClick={() => setSort("ascending")}
