@@ -21,7 +21,7 @@ function SearchHistory(props) {
             <div key={i} className="card my-1 p-2">
               <h3 className="card-title">Search: {data.search}</h3>
               <p className="card-subtitle">
-                Date: {moment(data.timestamp).format("M-D-YYYY h:mm:ssa")}
+                Date: {moment.unix(data.timestamp).format("M-D-YYYY h:mm:ssa")}
               </p>
             </div>
           );

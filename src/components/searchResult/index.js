@@ -14,15 +14,15 @@ function SearchResult(props) {
           if (data.url === null) {
             return (
               <div key={i} className="card my-1 p-2">
-                <h3 className="card-title">{data.title}</h3>
+                <h4 className="card-title">{data.title}</h4>
                 <p className="card-subtitle">Author: {data.author}</p>
               </div>
             );
           } else {
             return (
               <div key={i} className="card my-1 p-2">
-                <a href={data.url} target="_blank" rel="noreferrer">
-                  <h3 className="card-title">{data.title}</h3>
+                <a href={data.url} target="_blank" rel="noreferrer" className="link">
+                  <h4 className="card-title">{data.title}</h4>
                 </a>
                 <p className="card-subtitle">Author: {data.author}</p>
               </div>
